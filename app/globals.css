@@ -106,6 +106,23 @@ h1, h2, h3, h4, h5, h6 {
   will-change: transform, opacity;
 }
 
+/* Hero elements - hidden initially to prevent flash */
+.hero-badge,
+.hero-title,
+.hero-desc,
+.hero-cta,
+.stat-item {
+  opacity: 0;
+}
+
+/* Mobile only - hero image hidden initially */
+@media (max-width: 1023px) {
+  .hero-image,
+  .info-card {
+    opacity: 0;
+  }
+}
+
 /* Container */
 .container-custom {
   @apply max-w-7xl mx-auto;
