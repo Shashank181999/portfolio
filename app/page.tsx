@@ -103,9 +103,7 @@ export default function Home() {
   }, [heroImageVisible]);
 
   useEffect(() => {
-    // Check if preloader was already shown (navigation vs first load)
-    const hasSeenPreloader = sessionStorage.getItem("preloaderShown");
-    const preloaderDelay = hasSeenPreloader ? 0.1 : 1.1;
+    const animationDelay = 0.1;
 
     const ctx = gsap.context(() => {
       // Set initial states immediately to prevent flicker
@@ -122,7 +120,7 @@ export default function Home() {
         y: 0,
         opacity: 1,
         duration: 0.8,
-        delay: preloaderDelay,
+        delay: animationDelay,
         ease: "power3.out",
       });
 
@@ -131,7 +129,7 @@ export default function Home() {
         opacity: 1,
         duration: 1,
         stagger: 0.15,
-        delay: preloaderDelay + 0.2,
+        delay: animationDelay + 0.2,
         ease: "power3.out",
       });
 
@@ -139,7 +137,7 @@ export default function Home() {
         y: 0,
         opacity: 1,
         duration: 0.8,
-        delay: preloaderDelay + 0.4,
+        delay: animationDelay + 0.4,
         ease: "power3.out",
       });
 
@@ -147,7 +145,7 @@ export default function Home() {
         y: 0,
         opacity: 1,
         duration: 0.7,
-        delay: preloaderDelay + 0.5,
+        delay: animationDelay + 0.5,
         stagger: 0.15,
         ease: "power2.out",
       });
@@ -157,7 +155,7 @@ export default function Home() {
         opacity: 1,
         duration: 0.6,
         stagger: 0.1,
-        delay: preloaderDelay + 0.7,
+        delay: animationDelay + 0.7,
         ease: "power3.out",
       });
 
@@ -167,7 +165,7 @@ export default function Home() {
           x: 0,
           opacity: 1,
           duration: 1,
-          delay: preloaderDelay + 0.3,
+          delay: animationDelay + 0.3,
           ease: "power3.out",
         });
         gsap.to(".info-card", {
@@ -175,7 +173,7 @@ export default function Home() {
           opacity: 1,
           duration: 0.6,
           stagger: 0.1,
-          delay: preloaderDelay + 0.8,
+          delay: animationDelay + 0.8,
           ease: "power3.out",
         });
       }
