@@ -54,6 +54,41 @@ function ScrollReveal({
 
 export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null);
+  const heroImageRef = useRef<HTMLDivElement>(null);
+  const [heroImageVisible, setHeroImageVisible] = useState(false);
+
+  // Hero image animation on scroll (for mobile)
+  useEffect(() => {
+    const el = heroImageRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !heroImageVisible) {
+          setHeroImageVisible(true);
+          gsap.to(".hero-image", {
+            x: 0,
+            opacity: 1,
+            duration: 0.8,
+            ease: "power3.out",
+          });
+          gsap.to(".info-card", {
+            y: 0,
+            opacity: 1,
+            duration: 0.6,
+            stagger: 0.1,
+            delay: 0.3,
+            ease: "power3.out",
+          });
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [heroImageVisible]);
 
   useEffect(() => {
     // Check if preloader was already shown (navigation vs first load)
@@ -66,11 +101,11 @@ export default function Home() {
       gsap.set(".hero-title", { y: 80, opacity: 0 });
       gsap.set(".hero-desc", { y: 40, opacity: 0 });
       gsap.set(".hero-cta", { y: 30, opacity: 0 });
-      gsap.set(".hero-image", { x: 100, opacity: 0 });
+      gsap.set(".hero-image", { x: 60, opacity: 0 });
       gsap.set(".stat-item", { y: 30, opacity: 0 });
       gsap.set(".info-card", { y: 40, opacity: 0 });
 
-      // Hero animations
+      // Hero text animations (always run on load)
       gsap.to(".hero-badge", {
         y: 0,
         opacity: 1,
@@ -105,31 +140,33 @@ export default function Home() {
         ease: "power2.out",
       });
 
-      gsap.to(".hero-image", {
-        x: 0,
-        opacity: 1,
-        duration: 1,
-        delay: preloaderDelay + 0.3,
-        ease: "power3.out",
-      });
-
       gsap.to(".stat-item", {
         y: 0,
         opacity: 1,
         duration: 0.6,
         stagger: 0.1,
-        delay: preloaderDelay + 0.8,
+        delay: preloaderDelay + 0.7,
         ease: "power3.out",
       });
 
-      gsap.to(".info-card", {
-        y: 0,
-        opacity: 1,
-        duration: 0.6,
-        stagger: 0.1,
-        delay: preloaderDelay + 1,
-        ease: "power3.out",
-      });
+      // On desktop, hero image is visible immediately
+      if (window.innerWidth >= 1024) {
+        gsap.to(".hero-image", {
+          x: 0,
+          opacity: 1,
+          duration: 1,
+          delay: preloaderDelay + 0.3,
+          ease: "power3.out",
+        });
+        gsap.to(".info-card", {
+          y: 0,
+          opacity: 1,
+          duration: 0.6,
+          stagger: 0.1,
+          delay: preloaderDelay + 0.8,
+          ease: "power3.out",
+        });
+      }
 
       // Process line
       gsap.fromTo(".process-line",
@@ -379,7 +416,7 @@ export default function Home() {
 
             {/* Right - Profile Image */}
             <div className="relative">
-              <div className="hero-image relative w-full max-w-md mx-auto">
+              <div ref={heroImageRef} className="hero-image relative w-full max-w-md mx-auto">
                 <div className="relative aspect-[3/4] rounded-3xl overflow-hidden border border-zinc-800 bg-zinc-950">
                   <Image
                     src="/profile.jpeg"
