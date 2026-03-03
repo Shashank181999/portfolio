@@ -45,11 +45,11 @@ function ScrollReveal({
     if (isVisible) return "translate-x-0 translate-y-0 opacity-100";
     switch (direction) {
       case "left":
-        return "-translate-x-10 opacity-0";
+        return "-translate-x-6 opacity-0";
       case "right":
-        return "translate-x-10 opacity-0";
+        return "translate-x-6 opacity-0";
       default:
-        return "translate-y-10 opacity-0";
+        return "translate-y-8 opacity-0";
     }
   };
 
