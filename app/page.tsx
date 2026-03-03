@@ -801,7 +801,7 @@ export default function Home() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/30" />
 
-              <div className="relative p-8 md:p-10 min-h-[480px] flex flex-col justify-end">
+              <div className="relative p-6 md:p-10 min-h-[540px] md:min-h-[480px] flex flex-col justify-end">
                 {/* Badge */}
                 <span className="absolute top-6 left-6 px-4 py-2 bg-violet-500/90 rounded-full text-xs text-white font-semibold uppercase tracking-wider">
                   Ebook
@@ -849,9 +849,9 @@ export default function Home() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/30" />
 
-              <div className="relative p-8 md:p-10 min-h-[480px] flex flex-col justify-end">
+              <div className="relative p-6 md:p-10 min-h-[540px] md:min-h-[480px] flex flex-col justify-end">
                 {/* Badge */}
-                <div className="absolute top-6 left-6 flex items-center gap-3">
+                <div className="absolute top-6 left-6 flex flex-wrap items-center gap-2">
                   <span className="px-4 py-2 bg-violet-500/90 rounded-full text-xs text-white font-semibold uppercase tracking-wider">
                     My Creation
                   </span>
