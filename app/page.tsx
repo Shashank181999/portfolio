@@ -13,10 +13,12 @@ function ScrollReveal({
   children,
   className,
   delay = 0,
+  direction = "up",
 }: {
   children: ReactNode;
   className?: string;
   delay?: number;
+  direction?: "up" | "left" | "right";
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -39,12 +41,22 @@ function ScrollReveal({
     return () => observer.disconnect();
   }, []);
 
+  const getTransform = () => {
+    if (isVisible) return "translate-x-0 translate-y-0 opacity-100";
+    switch (direction) {
+      case "left":
+        return "-translate-x-10 opacity-0";
+      case "right":
+        return "translate-x-10 opacity-0";
+      default:
+        return "translate-y-10 opacity-0";
+    }
+  };
+
   return (
     <div
       ref={ref}
-      className={`${className} transition-all duration-700 ease-out ${
-        isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-      }`}
+      className={`${className} transition-all duration-700 ease-out ${getTransform()}`}
       style={{ transitionDelay: `${delay}s` }}
     >
       {children}
@@ -500,6 +512,7 @@ export default function Home() {
               <ScrollReveal
                 key={i}
                 delay={i * 0.1}
+                direction={i % 2 === 0 ? "left" : "right"}
                 className="service-card group relative p-8 rounded-3xl bg-zinc-950/80 backdrop-blur-sm border border-zinc-800 hover:border-violet-500/50 transition-all duration-300 hover:-translate-y-2 overflow-hidden"
               >
                 {/* Background glow */}
@@ -560,6 +573,7 @@ export default function Home() {
               <ScrollReveal
                 key={i}
                 delay={i * 0.1}
+                direction={i % 2 === 0 ? "left" : "right"}
                 className="project-card group rounded-3xl bg-zinc-950 border border-zinc-800 hover:border-zinc-700 overflow-hidden transition-all duration-300 hover:-translate-y-2"
               >
                 <div className="h-56 bg-gradient-to-br from-zinc-900 via-zinc-900 to-zinc-800 flex items-center justify-center relative overflow-hidden">
@@ -645,7 +659,7 @@ export default function Home() {
         <div className="container-custom relative z-[2]">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left Content */}
-            <ScrollReveal className="marketing-content">
+            <ScrollReveal direction="left" className="marketing-content">
               <span className="inline-flex items-center gap-2 px-4 py-2 bg-violet-500/20 border border-violet-500/30 rounded-full text-xs text-violet-300 uppercase tracking-wider mb-6">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
@@ -692,7 +706,7 @@ export default function Home() {
             </ScrollReveal>
 
             {/* Right - Stats/Features */}
-            <ScrollReveal className="marketing-stats">
+            <ScrollReveal direction="right" className="marketing-stats">
               <div className="relative p-8 md:p-10 bg-black/60 backdrop-blur-md border border-white/10 rounded-3xl">
                 <div className="absolute -top-4 -right-4 w-24 h-24 bg-violet-500/30 rounded-full blur-2xl" />
                 <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-purple-500/30 rounded-full blur-2xl" />
@@ -782,7 +796,7 @@ export default function Home() {
 
           <div className="grid lg:grid-cols-2 gap-8">
             {/* Ebook Card */}
-            <ScrollReveal className="group relative rounded-3xl overflow-hidden">
+            <ScrollReveal direction="left" className="group relative rounded-3xl overflow-hidden">
               {/* Background Image - Inspirational/Life */}
               <div
                 className="absolute inset-0 bg-cover bg-center"
@@ -830,7 +844,7 @@ export default function Home() {
             </ScrollReveal>
 
             {/* Trading Indicators Card - My Creation */}
-            <ScrollReveal className="group relative rounded-3xl overflow-hidden">
+            <ScrollReveal direction="right" className="group relative rounded-3xl overflow-hidden">
               {/* Background Image - Trading Chart */}
               <div
                 className="absolute inset-0 bg-cover bg-center"
