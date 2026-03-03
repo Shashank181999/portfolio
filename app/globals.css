@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #8b5cf6;
+  --secondary: #a855f7;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #000;
+  color: #fff;
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Headings - elegant thin style */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 300;
+  letter-spacing: -0.02em;
+}
+
+.font-bold {
+  font-weight: 500 !important;
+}
+
+.font-semibold {
+  font-weight: 400 !important;
+}
+
+::selection {
+  background: var(--primary);
+  color: #fff;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #000;
+}
+::-webkit-scrollbar-thumb {
+  background: #1a1a1a;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2a2a2a;
+}
+
+/* Gradient text */
+.text-gradient {
+  background: linear-gradient(135deg, #a78bfa 0%, #c084fc 50%, #f472b6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Button styles */
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white text-black font-medium rounded-full tracking-wide;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-primary:hover {
+  background: #a78bfa;
+  color: white;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-zinc-950 text-white border border-zinc-800 font-normal rounded-full tracking-wide;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.btn-secondary:hover {
+  border-color: #52525b;
+  background: #0a0a0a;
+}
+
+/* Hero buttons - allow GSAP to control */
+.hero-cta {
+  will-change: transform, opacity;
+}
+
+/* Container */
+.container-custom {
+  @apply max-w-7xl mx-auto;
+}
+
+/* Responsive safeguards */
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Prevent text overflow */
+h1, h2, h3, h4, h5, h6, p {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Mobile touch improvements */
+@media (max-width: 768px) {
+  .btn-primary, .btn-secondary {
+    @apply w-full justify-center;
+  }
+
+  /* Better tap targets */
+  a, button {
+    min-height: 44px;
+  }
+}
+
+/* 3D Card */
+.card-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.2s ease-out;
+}
+
+/* Preloader animation */
+@keyframes loading-bar {
+  0% {
+    width: 0%;
+    margin-left: 0%;
+  }
+  50% {
+    width: 60%;
+    margin-left: 20%;
+  }
+  100% {
+    width: 100%;
+    margin-left: 0%;
+  }
+}
+
+.animate-loading-bar {
+  animation: loading-bar 1.5s ease-in-out infinite;
+}
+
+
