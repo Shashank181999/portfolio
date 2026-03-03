@@ -111,9 +111,13 @@ export default function Home() {
       gsap.set(".hero-title", { y: 80, opacity: 0 });
       gsap.set(".hero-desc", { y: 40, opacity: 0 });
       gsap.set(".hero-cta", { y: 30, opacity: 0 });
-      gsap.set(".hero-image", { x: 60, opacity: 0 });
       gsap.set(".stat-item", { y: 30, opacity: 0 });
-      gsap.set(".info-card", { y: 40, opacity: 0 });
+
+      // Only set initial hidden state for hero-image on mobile
+      if (window.innerWidth < 1024) {
+        gsap.set(".hero-image", { x: 60, opacity: 0 });
+        gsap.set(".info-card", { y: 40, opacity: 0 });
+      }
 
       // Hero text animations (always run on load)
       gsap.to(".hero-badge", {
@@ -159,15 +163,8 @@ export default function Home() {
         ease: "power3.out",
       });
 
-      // On desktop, hero image is visible immediately
+      // On desktop, info cards still animate but hero image has no animation
       if (window.innerWidth >= 1024) {
-        gsap.to(".hero-image", {
-          x: 0,
-          opacity: 1,
-          duration: 1,
-          delay: animationDelay + 0.3,
-          ease: "power3.out",
-        });
         gsap.to(".info-card", {
           y: 0,
           opacity: 1,
