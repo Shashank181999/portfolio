@@ -381,7 +381,7 @@ export default function Home() {
             <div>
               <div className="hero-badge inline-flex items-center gap-2 px-4 py-2 bg-zinc-900 border border-zinc-800 rounded-full text-sm text-zinc-400 mb-8">
                 <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
-                Available for Projects
+                Full Stack & Automation Developer
               </div>
 
               <h1 className="mb-8">
