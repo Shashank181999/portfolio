@@ -80,6 +80,13 @@ h1, h2, h3, h4, h5, h6 {
   background-clip: text;
 }
 
+.text-gradient-emerald {
+  background: linear-gradient(135deg, #34d399 0%, #06b6d4 50%, #22d3ee 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 /* Button styles */
 .btn-primary {
   @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white text-black font-medium rounded-full tracking-wide;

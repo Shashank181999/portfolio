@@ -550,6 +550,224 @@ export default function Home() {
         </div>
       </section>
 
+      {/* My Software Section */}
+      <section className="software-section relative py-24 md:py-32 px-6 md:px-12 lg:px-20 border-t border-zinc-900 overflow-hidden">
+        {/* Background */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-zinc-950/50 to-black" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(139,92,246,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(139,92,246,0.02)_1px,transparent_1px)] bg-[size:60px_60px]" />
+        <div className="absolute top-20 right-20 w-[600px] h-[600px] bg-violet-500/8 rounded-full blur-[150px]" />
+        <div className="absolute bottom-20 left-20 w-[500px] h-[500px] bg-emerald-500/8 rounded-full blur-[150px]" />
+
+        <div className="container-custom relative z-10">
+          {/* Section Header */}
+          <div className="text-center mb-20">
+            <span className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-violet-500/20 to-emerald-500/20 border border-violet-500/30 rounded-full text-xs text-violet-300 uppercase tracking-wider mb-6">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              Software Products
+            </span>
+            <h2 className="text-4xl md:text-6xl font-light tracking-tight mb-6">
+              Software I <span className="text-gradient">Built</span>
+            </h2>
+            <p className="text-zinc-400 max-w-3xl mx-auto text-lg leading-relaxed">
+              Custom software solutions designed to automate marketing workflows, qualify leads with AI, and help businesses scale their operations.
+            </p>
+          </div>
+
+          {/* Software Cards Grid */}
+          <div className="grid lg:grid-cols-2 gap-8">
+
+            {/* Card 1: Marketing Team Automation */}
+            <ScrollReveal direction="left" className="group">
+              <div className="relative h-full rounded-3xl bg-gradient-to-br from-zinc-900 via-zinc-900 to-zinc-950 border border-zinc-800 overflow-hidden hover:border-violet-500/50 transition-all duration-500">
+                {/* Glow Effect */}
+                <div className="absolute top-0 right-0 w-64 h-64 bg-violet-500/20 rounded-full blur-[100px] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                {/* Header with Preview */}
+                <div className="relative p-6 pb-0">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-3">
+                      <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center shadow-lg shadow-violet-500/30">
+                        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-medium text-white">Marketing Automation</h3>
+                        <p className="text-sm text-zinc-500">Lead Management System</p>
+                      </div>
+                    </div>
+                    <span className="px-3 py-1.5 bg-violet-500/20 border border-violet-500/30 rounded-full text-xs text-violet-400 font-medium">
+                      Live
+                    </span>
+                  </div>
+
+                  {/* Mini Dashboard Preview */}
+                  <div className="rounded-2xl bg-zinc-950 border border-zinc-800 p-4 mb-6">
+                    <div className="grid grid-cols-4 gap-2 mb-3">
+                      <div className="p-2 rounded-lg bg-zinc-900 text-center">
+                        <div className="text-violet-400 font-semibold">1,247</div>
+                        <div className="text-[9px] text-zinc-600">Leads</div>
+                      </div>
+                      <div className="p-2 rounded-lg bg-zinc-900 text-center">
+                        <div className="text-blue-400 font-semibold">892</div>
+                        <div className="text-[9px] text-zinc-600">Contacted</div>
+                      </div>
+                      <div className="p-2 rounded-lg bg-zinc-900 text-center">
+                        <div className="text-amber-400 font-semibold">156</div>
+                        <div className="text-[9px] text-zinc-600">Follow-ups</div>
+                      </div>
+                      <div className="p-2 rounded-lg bg-zinc-900 text-center">
+                        <div className="text-emerald-400 font-semibold">78</div>
+                        <div className="text-[9px] text-zinc-600">Converted</div>
+                      </div>
+                    </div>
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="text-zinc-500">Real-time dashboard</span>
+                      <span className="flex items-center gap-1 text-emerald-400">
+                        <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
+                        Active
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Features */}
+                <div className="px-6 pb-6">
+                  <div className="grid grid-cols-2 gap-3 mb-6">
+                    {["Lead Capture", "Email Automation", "Campaign Analytics", "Smart Follow-ups"].map((feature, i) => (
+                      <div key={i} className="flex items-center gap-2 text-sm text-zinc-400">
+                        <svg className="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                        {feature}
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Tech Tags */}
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {["Next.js", "TypeScript", "Firebase", "Email API"].map((tech, i) => (
+                      <span key={i} className="px-2.5 py-1 bg-zinc-900/80 border border-zinc-800 rounded-lg text-xs text-zinc-500">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* CTA */}
+                  <a
+                    href="https://made-interiors-marketing.vercel.app/leads"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 w-full py-3.5 bg-gradient-to-r from-violet-500 to-purple-600 hover:from-violet-600 hover:to-purple-700 text-white font-medium rounded-xl transition-all duration-300 shadow-lg shadow-violet-500/20 hover:shadow-violet-500/40"
+                  >
+                    <span>View Live Software</span>
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </ScrollReveal>
+
+            {/* Card 2: AI Lead Qualification */}
+            <ScrollReveal direction="right" className="group">
+              <div className="relative h-full rounded-3xl bg-gradient-to-br from-zinc-900 via-zinc-900 to-zinc-950 border border-zinc-800 overflow-hidden hover:border-emerald-500/50 transition-all duration-500">
+                {/* Glow Effect */}
+                <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/20 rounded-full blur-[100px] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                {/* Header with Preview */}
+                <div className="relative p-6 pb-0">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-3">
+                      <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-500 to-cyan-600 flex items-center justify-center shadow-lg shadow-emerald-500/30">
+                        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-medium text-white">AI Lead Qualifier</h3>
+                        <p className="text-sm text-zinc-500">Intelligent Lead Scoring</p>
+                      </div>
+                    </div>
+                    <span className="px-3 py-1.5 bg-emerald-500/20 border border-emerald-500/30 rounded-full text-xs text-emerald-400 font-medium flex items-center gap-1.5">
+                      <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                      </svg>
+                      AI
+                    </span>
+                  </div>
+
+                  {/* AI Preview */}
+                  <div className="rounded-2xl bg-zinc-950 border border-zinc-800 p-4 mb-6">
+                    <div className="space-y-2 mb-3">
+                      {[
+                        { name: "Enterprise Lead", score: "94%", status: "Hot", color: "emerald" },
+                        { name: "Startup Inquiry", score: "72%", status: "Warm", color: "amber" },
+                        { name: "General Contact", score: "31%", status: "Cold", color: "zinc" },
+                      ].map((lead, i) => (
+                        <div key={i} className="flex items-center justify-between p-2 rounded-lg bg-zinc-900/50">
+                          <span className="text-xs text-zinc-400">{lead.name}</span>
+                          <div className="flex items-center gap-2">
+                            <span className={`text-xs font-medium text-${lead.color}-400`}>{lead.score}</span>
+                            <span className={`px-1.5 py-0.5 rounded text-[10px] bg-${lead.color}-500/20 text-${lead.color}-400`}>{lead.status}</span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="text-zinc-500">AI-powered scoring</span>
+                      <span className="flex items-center gap-1 text-emerald-400">
+                        <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
+                        Processing
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Features */}
+                <div className="px-6 pb-6">
+                  <div className="grid grid-cols-2 gap-3 mb-6">
+                    {["AI Scoring", "CSV Upload", "Auto Categorize", "Instant Results"].map((feature, i) => (
+                      <div key={i} className="flex items-center gap-2 text-sm text-zinc-400">
+                        <svg className="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                        {feature}
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Tech Tags */}
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {["Python", "Streamlit", "OpenAI", "Pandas"].map((tech, i) => (
+                      <span key={i} className="px-2.5 py-1 bg-zinc-900/80 border border-zinc-800 rounded-lg text-xs text-zinc-500">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* CTA */}
+                  <a
+                    href="https://ai-lead-qualification-efeqyk4pa4ismynhqr5dtw.streamlit.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 w-full py-3.5 bg-gradient-to-r from-emerald-500 to-cyan-600 hover:from-emerald-600 hover:to-cyan-700 text-white font-medium rounded-xl transition-all duration-300 shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/40"
+                  >
+                    <span>Try AI Qualifier</span>
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </ScrollReveal>
+
+          </div>
+        </div>
+      </section>
+
       {/* Projects Section */}
       <section className="projects-section py-24 md:py-32 px-6 md:px-12 lg:px-20 bg-black border-t border-zinc-900">
         <div className="container-custom">
